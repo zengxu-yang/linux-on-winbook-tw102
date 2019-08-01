@@ -28,7 +28,8 @@ to enter your product key for Windows 10 reinstallation.
 ## Creating Linux Installation USB Drive
 One caveat is that Winbook TW102 processor supports 64 bit instructions but the UEFI firmware is 32 bit. To install a 64 bit
 Linux system you need multiarch installation files. I used the Debian Buster multiarch CD image. Use a working Linux
-computer and follow the official Debian instructions to create the Debian installation USB drive.
+computer and follow the official Debian instructions to create the Debian installation USB drive. Note that currently Debian
+Buster uses kernel 4.19.0-5-amd64.
 
 ## Enter BIOS and Change Boot Order
 If you don't have the compatible Winbook TW102 keyboard then you need to plug a USB hub and a USB keyboard. Plug the Linux
