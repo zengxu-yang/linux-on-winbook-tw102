@@ -37,10 +37,9 @@ installation USB drive into the tablet USB port. Power off the tablet. Power on 
 power button and then immediately press the DEL key to enter BIOS settings. Change the boot order and set the USB drive as
 the first booting device. Save and exit.
 
-## GRUB Menu and Orientation Issue
+## GRUB Menu
 The tablet should boot from the USB drive now. GRUB menu is displayed but distorted and non-readable. Just press Enter key
-and you will proceed to the graphical installation dialogs. By default, the display is in portrait mode. It is suggested
-that adding kernel parameters can force it in horizontal mode.
+and you will proceed to the graphical installation dialogs. By default, the display is in portrait mode during installation.
 
 ## Touchpad and Network Issue
 The touchpad is not working in the installation. You can either just use the keyboard to navigate or plug in a USB mouse.
@@ -52,6 +51,32 @@ detected the wired network and the rest of the installation goes smoothly. When 
 recommended to use a lightweight desktop manager such as Xfce as this tablet is a low end product.
 
 # Post Installation
+## Screen Orientation
+### Console Orientation
+Edit `/etc/default/grub` and change
+
+`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+`
+
+to
+
+`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet fbcon=rotate:1"
+`
+### LightDM Greeter Orientation
+Edit `/etc/lightdm/lightdm.conf` and uncomment and edit one line below `[Seat:*]`:
+
+`
+greeter-setup-script=xrandr --output DSI-1 --rotate right
+`
+### Desktop Orientation
+Open a terminal and run the following command:
+
+`
+xrandr --output DSI-1 --rotate right
+`
+
 ## Things Work
 Note that I used the unofficial Debian installation CD image with non-free firmware built in. If you use the official CD
 image then you probably need to add non-free firmware for some of the components.
@@ -63,3 +88,5 @@ image then you probably need to add non-free firmware for some of the components
 ## Things Don't Work
 * Touchscreen
 * Cameras
+# Acknowledgement
+Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
