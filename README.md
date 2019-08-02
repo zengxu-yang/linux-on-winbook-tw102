@@ -97,6 +97,9 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 ## Things Don't Work
 * Touchscreen
 * Cameras
+* Display battery life
+* Suspend/Wakeup
+* Screen brightness adjustment
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
