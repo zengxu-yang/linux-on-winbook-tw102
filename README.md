@@ -86,6 +86,13 @@ image then you probably need to add non-free firmware for some of the components
 USB Composite Device Touchpad" in settings with Vendor ID 0x0603 and Product ID 0x0002 in `lsusb`.
 * WiFi works out of the box.
 * Audio works out of the box.
+* Bluetooth. You need to copy two firmware files to make it work.
+`
+cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/rtl_bt/rtl8723bs_fw.bin
+cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/rtl_bt/rtl8723bs_config-OBDA8723.bin
+`
+
+Then reboot and use `blueman-manager` to set up Bluetooth devices.
 ## Things Don't Work
 * Touchscreen
 * Cameras
