@@ -82,7 +82,8 @@ Note that I used the unofficial Debian installation CD image with non-free firmw
 image then you probably need to add non-free firmware for some of the components.
 * Intel Graphics work out of the box. By default it uses the portrait mode. In a terminal run
 `xrandr --output DSI-1 --rotate right` to switch to the horizontal mode.
-* Touchpad mostly works but I could not find the tap to click option in the touchpad settings.
+* Touchpad mostly works but I could not find the tap to click option in the touchpad settings. It is displayed as "SIPODEV
+USB Composite Device Touchpad" in settings with Vendor ID 0x0603 and Product ID 0x0002 in `lsusb`.
 * WiFi works out of the box.
 * Audio works out of the box.
 ## Things Don't Work
