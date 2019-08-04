@@ -81,10 +81,21 @@ xrandr --output DSI-1 --rotate right
 ## Things Work
 Note that I used the unofficial Debian installation CD image with non-free firmware built in. If you use the official CD
 image then you probably need to add non-free firmware for some of the components.
-* Intel Graphics work out of the box. By default it uses the portrait mode. In a terminal run
+* Intel Graphics works out of the box. By default it uses the portrait mode. In a terminal run
 `xrandr --output DSI-1 --rotate right` to switch to the horizontal mode.
-* Touchpad mostly works but I could not find the tap to click option in the touchpad settings. It is displayed as "SIPODEV
-USB Composite Device Touchpad" in settings with Vendor ID 0x0603 and Product ID 0x0002 in `lsusb`.
+* Touchpad works out of the box. It is displayed as "SIPODEV
+USB Composite Device Touchpad" in settings with Vendor ID 0x0603 and Product ID 0x0002 in `lsusb`. To enable tap to click,
+create a file `/etc/X11/xorg-conf.d/40-libinput.conf` with the following content:
+```
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "on"
+EndSection
+```
+Then restart lightdm by `systemctl restart lightdm`.
 * WiFi works out of the box.
 * Audio works out of the box.
 * Bluetooth. You need to copy two firmware files to make it work.
