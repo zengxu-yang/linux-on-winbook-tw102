@@ -103,7 +103,7 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Suspend/Wakeup
 * Screen brightness adjustment
 ## Issues
-* GRUB menu is not readable, possibly due to framebuffer display problems. Wokaround: Uncomment line
+* GRUB menu is not readable, possibly due to framebuffer display problems. Workaround: Uncomment line
 
 `GRUB_TERMINAL=console`
 
