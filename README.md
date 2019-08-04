@@ -39,7 +39,7 @@ power button and then immediately press the DEL key to enter BIOS settings. Chan
 the first booting device. Save and exit.
 
 ## GRUB Menu
-The tablet should boot from the USB drive now. GRUB menu is displayed but distorted and non-readable. Just press Enter key
+The tablet should boot from the USB drive now. GRUB menu is displayed but distorted and not readable. Just press Enter key
 and you will proceed to the graphical installation dialogs. By default, the display is in portrait mode during installation.
 
 ## Touchpad and Network Issue
@@ -102,6 +102,12 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Display battery life
 * Suspend/Wakeup
 * Screen brightness adjustment
+## Issues
+* GRUB menu is not readable, possibly due to framebuffer display problems. Wokaround: Uncomment line
+
+`GRUB_TERMINAL=console`
+
+then run `sudo update-grub` and reboot.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
