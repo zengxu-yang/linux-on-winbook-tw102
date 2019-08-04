@@ -6,6 +6,7 @@ Winbook TW102 is an inexpensive Intel Atom based tablet sold by
 
 Winbook TW102 Specs:
 * Intel Atom x-5 Z8350 processor 1.44 GHz
+* Intel HD graphics (8086:22b0)
 * Emdoor H8811C motherboard
 * 2GB LP-DDR3 RAM
 * 32GB eMMC Storage
