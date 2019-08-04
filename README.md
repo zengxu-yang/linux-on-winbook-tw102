@@ -119,6 +119,7 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 `GRUB_TERMINAL=console`
 
 then run `sudo update-grub` and reboot.
+* Framebuffer drive has some issues. Winbook automatically suspends in framebuffer mode if there is just a few seconds of inactivity.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
