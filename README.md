@@ -4,8 +4,9 @@ This is a record for my attempt of installing Linux on Winbook TW102.
 Winbook TW102 is an inexpensive Intel Atom based tablet sold by
 [Micro Center](https://www.microcenter.com/product/496688/winbook-tw102-101-quot) with Windows 10 Home 32 bit preinstalled.
 
-Features of Winbook TW102:
+Winbook TW102 Specs:
 * Intel Atom x-5 Z8350 processor 1.44 GHz
+* Emdoor H8811C motherboard
 * 2GB LP-DDR3 RAM
 * 32GB eMMC Storage
 * 10.1" 1280x800 IPS Touch Display
