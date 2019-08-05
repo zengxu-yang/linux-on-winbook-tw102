@@ -108,12 +108,12 @@ cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/gi
 
 Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Micro-SD card. Tested with a 128 GB micro-SD card.
-* Display monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
+* Battery monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
 ## Things Don't Work
 * Touchscreen
 * Cameras
 * Suspend/Wakeup
-* Screen brightness adjustment
+* Screen backlight brightness adjustment. There are brightness settings but they have no effect.
 ## Issues
 * GRUB menu is not readable, possibly due to framebuffer display problems. Workaround: Uncomment line
 
