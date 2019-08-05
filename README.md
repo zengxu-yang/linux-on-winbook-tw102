@@ -113,7 +113,7 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Touchscreen
 * Cameras
 * Suspend/Wakeup
-* Screen backlight brightness adjustment. There are brightness settings but they have no effect. `dmesg` show error messages:
+* Screen backlight brightness adjustment. There are brightness settings but they have no effect. `dmesg` shows the following error messages:
 ```
 [drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
 ```
