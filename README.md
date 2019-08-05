@@ -108,10 +108,10 @@ cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/gi
 
 Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Micro-SD card. Tested with a 128 GB micro-SD card.
+* Display monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
 ## Things Don't Work
 * Touchscreen
 * Cameras
-* Display battery life
 * Suspend/Wakeup
 * Screen brightness adjustment
 ## Issues
@@ -121,7 +121,15 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 
 then run `sudo update-grub` and reboot.
 * Framebuffer drive has some issues. Winbook automatically suspends in framebuffer mode if there is just a few seconds of inactivity.
+* Battery cannot be detected with the official Debian 10 kernel. [Rebuilding kernel](https://kernel-team.pages.debian.net/kernel-handbook/ch-common-tasks.html#s-common-official) is needed. You need to change the kernel configuration to make it work. Steps:
+1. `sudo apt-get install linux-source-4.19`
+2. `tar xaf /usr/src/linux-source-4.19`
+3. `cd linux-source-4.19`
+4. Copy the provided `.config` file to the current directory
+5. `make deb-pkg`
+6. Use dpkg to install the generated 3 kernel deb files.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
 * LightDM [orientation](https://askubuntu.com/questions/408302/rotated-monitor-login-screen-needs-rotation) settings.
+* [Kernel configuration](https://www.spinics.net/linux/fedora/fedora-kernel/msg06764.html) for Cherry Trail support.
