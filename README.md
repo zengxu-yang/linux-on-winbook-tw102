@@ -100,7 +100,6 @@ Then restart lightdm by `systemctl restart lightdm`.
 * WiFi works out of the box.
 * Audio works out of the box.
 * Bluetooth. You need to copy two firmware files to make it work.
-
 ```
 cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/rtl_bt/rtl8723bs_fw.bin
 cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/rtl_bt/rtl8723bs_config-OBDA8723.bin
@@ -109,17 +108,12 @@ cd /lib/firmware/rtl_bt sudo wget https://git.kernel.org/pub/scm/linux/kernel/gi
 Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Micro-SD card. Tested with a 128 GB micro-SD card.
 * Battery monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
+* Backlight brightness control. It works after rebuilding the kernel. See issues below.
 ## Things Don't Work
 * Touchscreen
 * Cameras
 * Suspend/Wakeup
-* Screen backlight brightness adjustment. There are brightness settings but they have no effect. `dmesg` shows the following error messages:
-```
-[drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
-```
-According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
 
-After rebuilding the kernel and blacklisting i915 module at start up, I can make backlight adjustment working by modprobe i915 after booting. But this causes a lot of other problems.
 ## Issues
 * GRUB menu is not readable, possibly due to framebuffer display problems. Workaround: Uncomment line
 
@@ -134,6 +128,13 @@ then run `sudo update-grub` and reboot.
 4. Copy the provided `.config` file to the current directory
 5. `make deb-pkg`
 6. Use dpkg to install the generated 3 kernel deb files.
+* Screen backlight brightness adjustment. There are brightness settings but they have no effect. `dmesg` shows the following error messages:
+```
+[drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
+```
+According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
+
+After rebuilding the kernel and blacklisting i915 module at start up, I can make backlight adjustment working by modprobe i915 after booting. But this causes a lot of other problems.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
