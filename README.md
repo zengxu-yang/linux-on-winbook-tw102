@@ -133,6 +133,7 @@ then run `sudo update-grub` and reboot.
 [drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
 ```
 According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
+* When both WiFi and Bluetooth are used ( e.g. with Bluetooth headsets), WiFi speed reduces to unbearably slow (< 1Mbps). Possible [analysis](https://h30434.www3.hp.com/t5/Tablets-and-Mobile-Devices-Archive-Read-Only/HP-Stream-7-WiFi-slowdown-when-using-bluetooth/td-p/4859579).
 
 It works after:
 1. recompile and upgrade the kernel.
