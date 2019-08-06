@@ -134,9 +134,13 @@ then run `sudo update-grub` and reboot.
 ```
 According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
 
-It works after recompiling and upgrading the kernel.
+It works after:
+1. recompile and upgrade the kernel.
+2. Add both pwm-lpss and pwm-lpss0-platform to /etc/initramfs-tools/modules
+3. sudo update-initramfs -u
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
 * LightDM [orientation](https://askubuntu.com/questions/408302/rotated-monitor-login-screen-needs-rotation) settings.
 * [Kernel configuration](https://www.spinics.net/linux/fedora/fedora-kernel/msg06764.html) for Cherry Trail support.
+* [Backlight](https://techtablets.com/forum/reply/69539/) support.
