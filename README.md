@@ -134,7 +134,7 @@ then run `sudo update-grub` and reboot.
 ```
 According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
 
-After rebuilding the kernel and blacklisting i915 module at start up, I can make backlight adjustment working by modprobe i915 after booting. But this causes a lot of other problems.
+It works after recompiling and upgrading the kernel.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
