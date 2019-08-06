@@ -117,6 +117,8 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 ```
 [drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
 ```
+According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
+
 After rebuilding the kernel and blacklisting i915 module at start up, I can make backlight adjustment working by modprobe i915 after booting. But this causes a lot of other problems.
 ## Issues
 * GRUB menu is not readable, possibly due to framebuffer display problems. Workaround: Uncomment line
