@@ -149,7 +149,7 @@ It works after:
 2. Add both pwm-lpss and pwm-lpss0-platform to /etc/initramfs-tools/modules
 3. sudo update-initramfs -u
 * When both WiFi and Bluetooth are used ( e.g. with Bluetooth headsets), WiFi speed reduces. Possible [analysis](https://h30434.www3.hp.com/t5/Tablets-and-Mobile-Devices-Archive-Read-Only/HP-Stream-7-WiFi-slowdown-when-using-bluetooth/td-p/4859579).
-* If you set to lock screen after a few minutes of inactivity, then Xfce screen turns black. The only way to return to the deskop is by pressing "Ctrl-Alt-F1" and then "Ctrl-Alt-F8". Xfce uses xflock4 to lock the screen and by default xflock4 uses light-locker. In Debian Buster, light-locker version is 1.8.0. This may be a [bug](https://github.com/the-cavalry/light-locker/issues/114). According to the discussion, there are several possible workaround options:
+* (This is a general issue of Linux and is not device related) If you set to lock screen after a few minutes of inactivity, then Xfce screen turns black and moving mouse or pressing a key does not bring to the lock screen. The only way to return to the lock screen is by either entering your password blindly or by pressing "Ctrl-Alt-F1" and then "Ctrl-Alt-F8". Xfce uses xflock4 to lock the screen and by default xflock4 uses light-locker. In Debian Buster, light-locker version is 1.8.0. This may be a [bug](https://github.com/the-cavalry/light-locker/issues/114) ([bug report 2](https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1801609)). According to the discussion, there are several possible workaround options:
 1. Uninstall light-locker and install xscreensaver.
 2. Use lightdm-slick-greeter instead of lightdm-gtk-greeter
 # References and Acknowlegements
