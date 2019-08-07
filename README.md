@@ -155,6 +155,7 @@ It works after:
 2. Use slick-greeter instead of lightdm-gtk-greeter.
 3. Install xfce4-screensaver. There is a package in Debian sid. You can download the source package and compile it. Note
 that you need to edit /usr/bin/xflock4 to add it. See [official doc](https://docs.xfce.org/apps/screensaver/faq#why_doesn_t_the_screensaverlock_screen_activate_when_i_attempt_to_lock_my_computer).
+* Scroll tearing in Firefox. Disabling smooth scrolling works.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
