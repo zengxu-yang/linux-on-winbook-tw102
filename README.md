@@ -19,6 +19,9 @@ Winbook TW102 Specs:
 It is recommended that buying the separately sold compatible keyboard makes it much easier to use Linux on it.
 
 # Linux Installation
+## What you need
+* A USB drive of at least 8 GB that you can wipe the data.
+* A computer with Debian Buster installed.
 
 ## System Recovery Drive
 This tablet has only 32 GB storage so I suggest wiping out the preinstalled Windows 10 before installing Linux. It is simply
@@ -53,6 +56,17 @@ detected the wired network and the rest of the installation goes smoothly. When 
 recommended to use a lightweight desktop manager such as Xfce as this tablet is a low end product.
 
 # Post Installation
+## Update Linux Kernel
+It is strongly recommended that you update the Linux kernel to the latest version. I updated the kernel to 5.2.6 from Debian Sid.
+
+You need to change the kernel configuration to make it work. Steps:
+1. Install `linux-source-5.2` with current version 5.2.6 from Debian sid.
+1. `sudo apt-get install linux-source-5.2`
+2. `tar xaf /usr/src/linux-source-5.2`
+3. `cd linux-source-5.2`
+4. Copy the provided `.config` file to the current directory
+5. `make deb-pkg`
+6. Use dpkg to install the generated 3 kernel deb files.
 ## Screen Orientation
 ### Console Orientation
 Edit `/etc/default/grub` and change
@@ -120,25 +134,19 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 `GRUB_TERMINAL=console`
 
 then run `sudo update-grub` and reboot.
-* Framebuffer drive has some issues. Winbook automatically suspends in framebuffer mode if there is just a few seconds of inactivity.
-* Battery cannot be detected with the official Debian 10 kernel. [Rebuilding kernel](https://kernel-team.pages.debian.net/kernel-handbook/ch-common-tasks.html#s-common-official) is needed. You need to change the kernel configuration to make it work. Steps:
-1. `sudo apt-get install linux-source-4.19`
-2. `tar xaf /usr/src/linux-source-4.19`
-3. `cd linux-source-4.19`
-4. Copy the provided `.config` file to the current directory
-5. `make deb-pkg`
-6. Use dpkg to install the generated 3 kernel deb files.
+* Framebuffer drive has some issues. Winbook automatically suspends in framebuffer mode if there is just a few seconds of inactivity. This is determined to be s2idle state support issues. Update kernel to 5.2.6 to solve it.
+* Battery cannot be detected with the official Debian 10 kernel. [Rebuilding and updating kernel](https://kernel-team.pages.debian.net/kernel-handbook/ch-common-tasks.html#s-common-official) is needed.
 * Screen backlight brightness adjustment. There are brightness settings but they have no effect. `dmesg` shows the following error messages:
 ```
 [drm:pwm_setup_backlight [i915]] *ERROR* Failed to own the pwm chip
 ```
 According to online discussions, it is because i915 tends to start before pwm_crc, which causes the issue.
-* When both WiFi and Bluetooth are used ( e.g. with Bluetooth headsets), WiFi speed reduces to unbearably slow (< 1Mbps). Possible [analysis](https://h30434.www3.hp.com/t5/Tablets-and-Mobile-Devices-Archive-Read-Only/HP-Stream-7-WiFi-slowdown-when-using-bluetooth/td-p/4859579).
 
 It works after:
 1. recompile and upgrade the kernel.
 2. Add both pwm-lpss and pwm-lpss0-platform to /etc/initramfs-tools/modules
 3. sudo update-initramfs -u
+* When both WiFi and Bluetooth are used ( e.g. with Bluetooth headsets), WiFi speed reduces. Possible [analysis](https://h30434.www3.hp.com/t5/Tablets-and-Mobile-Devices-Archive-Read-Only/HP-Stream-7-WiFi-slowdown-when-using-bluetooth/td-p/4859579).
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
