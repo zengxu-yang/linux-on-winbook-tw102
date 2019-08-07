@@ -123,8 +123,10 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Micro-SD card. Tested with a 128 GB micro-SD card.
 * Battery monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
 * Backlight brightness control. It works after rebuilding the kernel. See issues below.
+* USB charging.
 ## Things Don't Work
-* Touchscreen
+* Touchscreen. Probably need to extract firmware from Windows 10 drivers. There are some firmware files online but I didn't
+find one for this particular device.
 * Cameras
 * Suspend/Wakeup
 
