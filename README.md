@@ -1,3 +1,4 @@
+# Linux Installation on Winbook TW102 Tablet
 This is a record for my attempt of installing Linux on Winbook TW102.
 # Hardware
 
@@ -151,7 +152,7 @@ It works after:
 * When both WiFi and Bluetooth are used ( e.g. with Bluetooth headsets), WiFi speed reduces. Possible [analysis](https://h30434.www3.hp.com/t5/Tablets-and-Mobile-Devices-Archive-Read-Only/HP-Stream-7-WiFi-slowdown-when-using-bluetooth/td-p/4859579).
 * (This is a general issue of Linux and is not device related) If you set to lock screen after a few minutes of inactivity, then Xfce screen turns black and moving mouse or pressing a key does not bring to the lock screen. The only way to return to the lock screen is by either entering your password blindly or by pressing "Ctrl-Alt-F1" and then "Ctrl-Alt-F8". Xfce uses xflock4 to lock the screen and by default xflock4 uses light-locker. In Debian Buster, light-locker version is 1.8.0. This may be a [bug](https://github.com/the-cavalry/light-locker/issues/114) ([bug report 2](https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1801609)). According to the discussion, there are several possible workaround options:
 1. Uninstall light-locker and install xscreensaver.
-2. Use lightdm-slick-greeter instead of lightdm-gtk-greeter
+2. Use slick-greeter instead of lightdm-gtk-greeter. (I tried this workaround and it worked for me.)
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
