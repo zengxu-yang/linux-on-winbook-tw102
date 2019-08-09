@@ -66,7 +66,7 @@ You need to change the kernel configuration to make it work. Steps:
 2. `tar xaf /usr/src/linux-source-5.2`
 3. `cd linux-source-5.2`
 4. Copy the provided `.config` file to the current directory
-5. `make deb-pkg`
+5. `make deb-pkg` ( or use `make deb-binpkg` to save compilation time)
 6. Use dpkg to install the generated 3 kernel deb files.
 ## Screen Orientation
 ### Console Orientation
@@ -125,7 +125,7 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Battery monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
 * Backlight brightness control. It works after rebuilding the kernel. See issues below.
 * USB charging.
-* Touchscreen works with issues.
+* Touchscreen works with issues. See below.
 * Suspend/Wakeup works with issues.
 ## Things Don't Work
 * Cameras
@@ -154,8 +154,12 @@ It works after:
 2. Use slick-greeter instead of lightdm-gtk-greeter.
 3. Install xfce4-screensaver. There is a package in Debian sid. You can download the source package and compile it. Note
 that you need to edit /usr/bin/xflock4 to add it. See [official doc](https://docs.xfce.org/apps/screensaver/faq#why_doesn_t_the_screensaverlock_screen_activate_when_i_attempt_to_lock_my_computer).
+* Touchscreen. Winbook TW102 uses Silead GSL1680 touch controller. First of all, you need the firmware for it to work. I have extracted and uploaded the required firmware
+file from its Windows driver file. You need to:
+1. Copy `gsl1680-winbook-tw102.fw` to `/lib/firmware/silead`.
+2. Patch `drivers/platform/x86/touchscreen-dmi.c` and update your kernel.
+3. Use the provided Udev configuration file for calibration. `cp 98-touchscreen-cal.rules /etc/udev/rules.d`. Then reboot.
 * Scroll tearing in Firefox. Disabling smooth scrolling works.
-* Touchscreen. Winbook TW102 uses Silead GSL1680 touch controller. Windows drivers can be downloaded
 * Syslog reports missing libbd_mdraid.so.2. Install libblockdev-mdraid2 package.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
