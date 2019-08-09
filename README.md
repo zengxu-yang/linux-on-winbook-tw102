@@ -162,3 +162,5 @@ that you need to edit /usr/bin/xflock4 to add it. See [official doc](https://doc
 * LightDM [orientation](https://askubuntu.com/questions/408302/rotated-monitor-login-screen-needs-rotation) settings.
 * [Kernel configuration](https://www.spinics.net/linux/fedora/fedora-kernel/msg06764.html) for Cherry Trail support.
 * [Backlight](https://techtablets.com/forum/reply/69539/) support.
+* [Silead touchscreen firmware extraction and kernel patching](https://github.com/onitake/gsl-firmware).
+* [Touchscreen calibration](https://wiki.archlinux.org/index.php/Talk:Calibrating_Touchscreen).
