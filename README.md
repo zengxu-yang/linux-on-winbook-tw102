@@ -125,11 +125,10 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Battery monitor. Kernel reconfiguration and rebuilding needed to make it work. See issues below.
 * Backlight brightness control. It works after rebuilding the kernel. See issues below.
 * USB charging.
+* Touchscreen works with issues.
+* Suspend/Wakeup works with issues.
 ## Things Don't Work
-* Touchscreen. Probably need to extract firmware from Windows 10 drivers. There are some firmware files online but I didn't
-find one for this particular device.
 * Cameras
-* Suspend/Wakeup
 
 ## Issues
 * GRUB menu is not readable, possibly due to framebuffer display problems. Workaround: Uncomment line
@@ -156,6 +155,8 @@ It works after:
 3. Install xfce4-screensaver. There is a package in Debian sid. You can download the source package and compile it. Note
 that you need to edit /usr/bin/xflock4 to add it. See [official doc](https://docs.xfce.org/apps/screensaver/faq#why_doesn_t_the_screensaverlock_screen_activate_when_i_attempt_to_lock_my_computer).
 * Scroll tearing in Firefox. Disabling smooth scrolling works.
+* Touchscreen. Winbook TW102 uses Silead GSL1680 touch controller. Windows drivers can be downloaded
+* Syslog reports missing libbd_mdraid.so.2. Install libblockdev-mdraid2 package.
 # References and Acknowlegements
 * Thank [divVerent](https://github.com/divVerent/linux-on-winbook-tw102) for the original post of installing Linux on Winbook TW102.
 * Bluetooth [firmware](https://www.reddit.com/r/linuxmint/comments/aothqi/bluetooth_not_working/) for Winbook TW102.
