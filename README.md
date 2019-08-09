@@ -165,3 +165,4 @@ that you need to edit /usr/bin/xflock4 to add it. See [official doc](https://doc
 * [Backlight](https://techtablets.com/forum/reply/69539/) support.
 * [Silead touchscreen firmware extraction and kernel patching](https://github.com/onitake/gsl-firmware).
 * [Touchscreen calibration](https://wiki.archlinux.org/index.php/Talk:Calibrating_Touchscreen).
+* [Kernel patch](https://bugzilla.kernel.org/show_bug.cgi?id=202543) to fix the INT33FF shared GPIO bug.
