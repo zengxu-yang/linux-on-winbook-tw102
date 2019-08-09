@@ -159,6 +159,7 @@ file from its Windows driver file. You need to:
 1. Copy `gsl1680-winbook-tw102.fw` to `/lib/firmware/silead`.
 2. Patch `drivers/platform/x86/touchscreen-dmi.c` and update your kernel.
 3. Use the provided Udev configuration file for calibration. `cp 98-touchscreen-cal.rules /etc/udev/rules.d`. Then reboot.
+You need this because Debian Buster uses libinput and the traditional Xorg calibration configuration does not work any more.
 * Scroll tearing in Firefox. Disabling smooth scrolling works.
 * Syslog reports missing libbd_mdraid.so.2. Install libblockdev-mdraid2 package.
 # References and Acknowlegements
