@@ -126,7 +126,8 @@ Then reboot and use `blueman-manager` to set up Bluetooth devices.
 * Backlight brightness control. It works after rebuilding the kernel. See issues below.
 * USB charging.
 * Touchscreen works with issues. See below.
-* Suspend/Wakeup works with issues.
+* Suspend/Wakeup works with issues. Suspend should work but hibernation does not work properly. Kernel complains that
+it cannot find the image when resuming from hibernation. You can disable hibernation in systemd settings.
 ## Things Don't Work
 * Cameras
 
