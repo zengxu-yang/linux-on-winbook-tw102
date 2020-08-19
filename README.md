@@ -66,7 +66,7 @@ You need to change the kernel configuration to make it work. Steps:
 2. `tar xaf /usr/src/linux-source-5.2`
 3. `cd linux-source-5.2`
 4. Copy the provided `.config` file to the current directory
-5. `make deb-pkg` ( or use `make deb-binpkg` to save compilation time)
+5. `make deb-pkg` ( or use `make bindeb-pkg` to save compilation time)
 6. Use dpkg to install the generated 3 kernel deb files.
 ## Screen Orientation
 ### Console Orientation
